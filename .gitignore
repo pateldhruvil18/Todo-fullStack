@@ -1,11 +1,13 @@
-# environment variables
+# environment files
 Backend/.env
 frontend/.env
 
 # node modules
 node_modules
+Backend/node_modules
+frontend/node_modules
 
-# build files
+# build folders
 dist
 build
 
