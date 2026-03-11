@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { deleteTodo, updateTodo } from "../services/todo.service";
 import type { Todo, Priority } from "../types/todo.types";
+import { toast } from "sonner";
 
 type TodoCardProps = {
   todo: Todo;
@@ -19,6 +20,7 @@ export default function TodoCard({ todo, refetch }: TodoCardProps) {
 
   const remove = async () => {
     await deleteTodo(todo._id);
+    toast.success("todo deleted successfully");
     refetch();
   };
 
@@ -29,8 +31,9 @@ export default function TodoCard({ todo, refetch }: TodoCardProps) {
       priority,
       dueDate,
     });
-
+   
     setIsEditing(false);
+    toast.success("todo updated successfully")
     refetch();
   };
 

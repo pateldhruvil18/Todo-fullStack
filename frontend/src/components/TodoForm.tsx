@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createTodo } from "../services/todo.service";
+import { toast } from "sonner";
 
 type TodoFormProps = {
   refetch: () => void;
@@ -20,7 +21,7 @@ export default function TodoForm({ refetch }: TodoFormProps) {
       priority,
       dueDate,
     });
-
+    toast.success("todo created succefully")
     setTitle("");
     setDescription("");
     setPriority("low");
