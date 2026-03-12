@@ -5,5 +5,6 @@ export const useTodos = () => {
     return useQuery({
         queryKey: ["todos"],
         queryFn : fetchTodos,
+        
     })
 };
