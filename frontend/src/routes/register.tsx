@@ -4,24 +4,47 @@ import { registerUser } from "../services/auth.service";
 import { toast } from "sonner";
 
 export default function Register() {
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const submit = async () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!name || !email || !password) {
+            toast.error("All fields are required");
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            toast.error("Enter a valid email address");
+            return;
+        }
+
+        if (password.length < 6) {
+            toast.error("Password must be at least 6 characters");
+            return;
+        }
+
         try {
+
             const data = await registerUser({ name, email, password });
 
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data));
-            toast.success("Login successfully");
+            toast.success("OTP sent to your email");
 
+            // redirect to verify page
             setTimeout(() => {
-                window.location.href = "/dashboard";
-            }, 1000);
-        } catch (error) {
-            toast.error("register failed")
-            alert("Registration failed. Try again.");
+                window.location.href = `/verify?userId=${data.userId}`;
+            }, 1200);
+
+        } catch (error: any) {
+
+            const message =
+                error?.response?.data?.message || "Register failed";
+
+            toast.error(message);
+
         }
     };
 
