@@ -6,7 +6,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
 const cookieParser = require("cookie-parser");
-const httpStatus = require("http-status");
+const httpStatus = require("http-status").status;
 
 const connectDB = require("./config/mongo");
 const startup = require("./config/startup");

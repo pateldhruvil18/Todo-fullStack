@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const otpGenerator = require("otp-generator");
-const httpStatus = require("http-status");
+const httpStatus = require("http-status").status;
 const User = require("../models/user.schema");
 const generateToken = require("../utils/generateTokens");
 const sendEmail = require("../helpers/sendMail");

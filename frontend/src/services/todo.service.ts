@@ -1,4 +1,4 @@
-import api from "../lib/axios";;
+import api from "../lib/axios";
 
 export const fetchTodos = async () => {
     const res = await api.get("/todos");

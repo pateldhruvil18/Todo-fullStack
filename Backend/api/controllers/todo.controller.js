@@ -1,4 +1,4 @@
-const httpStatus = require("http-status");
+const httpStatus = require("http-status").status;
 const Todo = require("../models/todo.schema");
 const { handleError } = require("../utils/handleError");
 const { buildResponse } = require("../utils/buildResponse");

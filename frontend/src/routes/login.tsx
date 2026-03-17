@@ -11,8 +11,8 @@ export default function Login() {
         try {
             const data = await loginUser({ email, password });
 
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data));
+            localStorage.setItem("token", data.data.token);
+            localStorage.setItem("user", JSON.stringify(data.data));
             toast.success("Login successfully");
 
             setTimeout(() => {

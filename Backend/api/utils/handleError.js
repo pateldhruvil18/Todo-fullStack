@@ -1,4 +1,4 @@
-const httpStatus = require('http-status')
+const httpStatus = require('http-status').status;
 const { buildErrorObject } = require('./buildErrorObject')
 
 /**
@@ -12,8 +12,14 @@ const handleError = (res = {}, err = {}) => {
     console.log(err)
   }
   // Send error response
-  const code = err.code || httpStatus.INTERNAL_SERVER_ERROR
-  res.status(code).json(buildErrorObject(code, err.message || 'Internal Server Error'))
+  let rawCode = err.statusCode || err.code || httpStatus.INTERNAL_SERVER_ERROR;
+  let code = Math.floor(Number(rawCode));
+  
+  if (!code || isNaN(code) || code < 100 || code > 599) {
+    code = httpStatus.INTERNAL_SERVER_ERROR;
+  }
+
+  res.status(code).json(buildErrorObject(code, err.message || 'Internal Server Error'));
 }
 
 module.exports = { handleError }

@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator')
-const httpStatus = require('http-status')
+const httpStatus = require('http-status').status;
 const { buildErrorObject } = require('./buildErrorObject')
 
 /**

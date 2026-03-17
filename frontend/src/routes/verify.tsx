@@ -18,7 +18,7 @@ export default function Verify() {
       toast.success("Account verified");
 
       setTimeout(() => {
-        window.location.href = "/dashboard";
+        window.location.href = "/login";
       }, 1200);
 
     } catch (error:any) {

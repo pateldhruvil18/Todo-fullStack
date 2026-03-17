@@ -8,6 +8,6 @@ const { validateRegister, validateLogin } = require("../validators/auth.validato
 router.post("/register", validateRegister, register);
 router.post("/verify-otp", verifyOtp)
 router.post("/login", validateLogin, login);
-router.post("/me",protect, getMe);
+router.get("/me",protect, getMe);
 
 module.exports = router

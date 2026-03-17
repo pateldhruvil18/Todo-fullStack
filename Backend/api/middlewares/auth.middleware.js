@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const httpStatus = require("http-status");
+const httpStatus = require("http-status").status;
 const User = require("../models/user.schema");
 const { buildErrorObject } = require("../utils/buildErrorObject");
 

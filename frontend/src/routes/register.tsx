@@ -35,7 +35,7 @@ export default function Register() {
 
             // redirect to verify page
             setTimeout(() => {
-                window.location.href = `/verify?userId=${data.userId}`;
+                window.location.href = `/verify?userId=${data.data.userId}`;
             }, 1200);
 
         } catch (error: any) {

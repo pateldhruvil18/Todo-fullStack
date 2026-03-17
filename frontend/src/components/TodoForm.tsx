@@ -15,19 +15,23 @@ export default function TodoForm({ refetch }: TodoFormProps) {
   const submit = async () => {
     if (!title.trim()) return;
 
-    await createTodo({
-      title,
-      description,
-      priority,
-      dueDate,
-    });
-    toast.success("todo created succefully")
-    setTitle("");
-    setDescription("");
-    setPriority("low");
-    setDueDate("");
+    try {
+      await createTodo({
+        title,
+        description,
+        priority,
+        dueDate,
+      });
+      toast.success("todo created succefully")
+      setTitle("");
+      setDescription("");
+      setPriority("low");
+      setDueDate("");
 
-    refetch();
+      refetch();
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Failed to create todo");
+    }
   };
 
   return (

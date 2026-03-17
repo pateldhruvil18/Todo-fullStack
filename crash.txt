@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: Invalid status code: undefined. Status code must be an integer.<br> &nbsp; &nbsp;at ServerResponse.status (C:\Users\patel dhruvil\OneDrive\Desktop\TodoApp\Backend\node_modules\express\lib\response.js:67:11)<br> &nbsp; &nbsp;at handleError (C:\Users\patel dhruvil\OneDrive\Desktop\TodoApp\Backend\api\utils\handleError.js:21:7)<br> &nbsp; &nbsp;at exports.register (C:\Users\patel dhruvil\OneDrive\Desktop\TodoApp\Backend\api\controllers\auth.controller.js:44:5)<br> &nbsp; &nbsp;at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</pre>
+</body>
+</html>
