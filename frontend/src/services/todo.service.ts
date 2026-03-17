@@ -19,3 +19,8 @@ export const updateTodo = async (id: string, data: any) => {
     const res = await api.put(`/todos/${id}`, data);
     return res.data;
 };
+
+export const toggleTodo = async (id: string, completed: boolean) => {
+  const res = await api.put(`/todos/${id}`, { completed });
+  return res.data;
+};
